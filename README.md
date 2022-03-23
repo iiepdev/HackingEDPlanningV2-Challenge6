@@ -37,8 +37,7 @@ I will sum the remaining records regardless of region, area, educational level, 
 
 Given all the records I will calculate :
 
-$\Large\frac{\sum_{i}(valor\_indicador_i \times factor_i)} {SUM(factor)}$
-
+![Compute indicators](https://latex.codecogs.com/svg.image?\Large\frac{\sum_{i}(valor\_indicador_i&space;\times&space;factor_i)}&space;{SUM(factor)})
 \
 Here is an example of code with the above filters and grouping by the `region` and `sexo` written in Python and the Pandas library:
 ```py
