@@ -14,3 +14,13 @@ The data can be found in the `data` folder. There is one CSV file for each table
 
 You can find the data model with relations between each table below:
 ![SITEAL data model](data_model_siteal.png "SITEAL Data Model")
+
+\
+The table `datos` has the following fields:
+- **id_datos**: ID of the record;
+- **pais, region, ano, area, sexo, grupo_edad, clima_educativo,nivel_ingresos**: To which cutoffs the record corresponds. Except for `ano`, the values of the columns are IDs bound to each `labels_*` tables. Each record is the value of an indicator for a subset of the population corresponding to the intersection of all these cutoffs. Note that each indicator, depending on the chapter to which it corresponds, uses different cut-off variables. In other words, in some records some cutoff variables will be 0, which means that this indicator does not use it.
+- **indicador**: The ID of the indicator;
+- **valor_indicador**: The value of the indicator for that subset of the population corresponding to the intersection of all the cutoffs.
+- **factor**: A weighting factor relative to the percentage of the country's population that corresponds to the subset of the population identified by this record.
+- **muestra**: The sample size of the subset of the population that was used to construct the indicator value. If in the results table a cell corresponds to a very small sample (summing the samples of all the records that were used to generate that cell) a warning is displayed that the value may not be representative.
+
