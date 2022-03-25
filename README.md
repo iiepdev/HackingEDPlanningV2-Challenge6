@@ -69,3 +69,9 @@ Pampeana     F            93.687275
 Patagonia    F            94.748224
              M            94.416389
 ```
+
+# Resources
+
+To get you started quickly and help you with this challenge, we have prepared a non-exhaustive list of inspiring data visualizations and tools on this Notion page : **[Inspiring visualizations and Toolbox](https://fabiencazals.notion.site/Inspiring-visualizations-and-Toolbox-3797702146d443078ac6413b33203c00)**.
+
+However, feel free to use the tools you prefer to succeed in this challenge!
