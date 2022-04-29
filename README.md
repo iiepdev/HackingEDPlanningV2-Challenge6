@@ -1,5 +1,7 @@
 # 🎨 HackingEDPlanningV2-Challenge6
 
+Note: By accessing this repository and the corresponding files, you agree to a non-disclosure agreement. To get a copy, please write to development@iiep.unesco.org
+
 ## Improving the visualisation of education indicators to make them more accessible and user-friendly
 
 Through its web platform SITEAL, IIEP provides a set of educational indicators from Latin American countries disaggregated by socio-economic variables. This data is **highly relevant for officers of the Ministries of Education of the region, as well as for researchers and developers** interested in statistical trends. However, the output tables of the current interface are not visually attractive, which makes them hard to interpret and leads to under-utilization. 
