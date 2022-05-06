@@ -219,6 +219,8 @@ Por ejemplo: si selecciono los filtros `name_indicador="Tasa de asistencia escol
 
 Teniendo en cuenta todos los registros voy a calcular:
 
+![Compute indicators](https://latex.codecogs.com/svg.latex?%5CLarge%5Cfrac%7B%5Csum_%7Bi%7D%28valor%5C_indicador_i%20%5Ctimes%20factor_i%29%7D%20%7B%5Csum_%7Bi%7D%20factor_i%7D)
+
 A continuación se muestra un ejemplo de código con los filtros anteriores y la agrupación por la region y sexo escrito en Python y la biblioteca Pandas:
 
 ```
