@@ -96,6 +96,91 @@ If you have never used github repository you can download the content of this re
 
 # Version française
 
+Note : En accédant à ce dépôt et aux fichiers correspondants, vous acceptez un accord de non-divulgation des données confidentielles. Pour en obtenir une copie, veuillez écrire à development@iiep.unesco.org.
+
+🧐 Par le biais de sa plateforme web SITEAL, l'IIPE fournit un ensemble d'indicateurs éducatifs des pays d'Amérique latine, ventilés par variables socio-économiques. Ces données sont très utiles pour les fonctionnaires des ministères de l'éducation de la région, ainsi que pour les chercheurs et les développeurs intéressés par les tendances statistiques. Cependant, les tableaux de sortie de l'interface actuelle ne sont pas visuellement attrayants, ce qui les rend difficiles à interpréter et entraîne une sous-utilisation.
+
+🎯 Ce défi vise à créer un exemple de travail minimum ou une maquette des améliorations proposées pour la visualisation des données, dans le but de favoriser une utilisation plus importante et meilleure des données. Il s'agit de rendre les tableaux de sortie plus attrayants visuellement et plus conviviaux et de proposer des graphiques permettant de visualiser les tendances à long terme et de comparer les indicateurs.
+
+⛑ La participation de concepteurs web, d'analystes de données et d'experts en visualisation de données est encouragée.
+
+# Données
+
+Les données se trouvent dans le dossier `data`. Il y a un fichier CSV pour chaque tableau.
+= `datos.csv` est le tableau principal qui contient les valeurs indicatrices pour chaque variable de coupure ;
+- chaque fichier `labels_*.csv` contient les catégories de chaque variable de coupure. Bien que les variables de coupure soient les mêmes, les catégories diffèrent selon les pays ;
+- `pais_ano.csv` est un tableau indiquant quelles années et quels "chapitres" de données sont disponibles pour chaque pays ;
+- `fuentes.csv` liste la source des données pour chaque pays.
+
+Vous pouvez trouver le modèle de données avec les relations entre chaque table ci-dessous : 
+
+![SITEAL data model](data_model_siteal.png "SITEAL Data Model")
+
+La table datos comporte les champs suivants :
+- **id_datos** : ID de l'enregistrement ;
+- **pais, region, ano, area, sexo, grupo_edad, clima_educativo,nivel_ingresos** : A quels seuils correspond l'enregistrement. A l'exception de ano, les valeurs des colonnes sont des ID liés à chaque table labels_*. Chaque enregistrement est la valeur d'un indicateur pour un sous-ensemble de la population correspondant à l'intersection de tous ces seuils. Notez que chaque indicateur, selon le chapitre auquel il correspond, utilise des variables de coupure différentes. En d'autres termes, dans certains enregistrements, certaines variables de coupure seront à 0, ce qui signifie que cet indicateur ne l'utilise pas.
+- **indicador** : L'ID de l'indicateur ;
+- **valor_indicador** : La valeur de l'indicateur pour le sous-ensemble de la population correspondant à l'intersection de tous les seuils.
+- **factor** : Un facteur de pondération relatif au pourcentage de la population du pays qui correspond au sous-ensemble de la population identifié par cette fiche.
+- **muestra** : La taille de l'échantillon du sous-ensemble de la population qui a été utilisé pour construire la valeur de l'indicateur. Si, dans le tableau des résultats, une cellule correspond à un très petit échantillon (en additionnant les échantillons de tous les enregistrements qui ont été utilisés pour générer cette cellule), un avertissement est affiché indiquant que la valeur peut ne pas être représentative.
+
+# Calculer les indicateurs
+
+Pour calculer les indicateurs, il y a un peu de travail.
+
+Pour chaque ligne du tableau, tous les enregistrements correspondant à ce croisement sont additionnés.
+
+Par exemple : si je sélectionne les filtres `name_indicador="Tasa de asistencia escolar por edad"`, `ano=2000` et `pays=Argentina`, je vais additionner les enregistrements restants indépendamment de la région, de la zone, du niveau d'éducation, du revenu, etc.
+
+Compte tenu de tous les enregistrements, je vais calculer :
+
+![Compute indicators](https://latex.codecogs.com/svg.latex?%5CLarge%5Cfrac%7B%5Csum_%7Bi%7D%28valor%5C_indicador_i%20%5Ctimes%20factor_i%29%7D%20%7B%5Csum_%7Bi%7D%20factor_i%7D)
+
+Voici un exemple de code avec les filtres ci-dessus et le regroupement par la region et le sexo écrit en Python et la bibliothèque Pandas :
+
+```
+#data df contient le nom de chaque variable de coupure ainsi que les valeurs des indicateurs.
+(data_df[
+    (data_df. id_indicador == 1) 
+    & (data_df. name_pais == "Argentina") 
+    & (data_df. ano == 2000)
+]
+. groupby([ "name_région", "name_sexo"])
+. appliquer(
+    lambda x : (x. valor_indicador * x. factor). somme() / x. factor. somme()
+))
+```
+
+Il sortira :
+
+```
+name_region  name_sexo    value
+Cuyo         F            92.772666
+             M            92.596198
+GBA          F            95.550191
+             M            93.866597
+NEA          F            90.699658
+             M            90.797952
+NOA          F            92.361585
+             M            92.078883
+Pampeana     F            93.687275
+             M            93.538756
+Patagonia    F            94.748224
+             M            94.416389
+```
+
+# Ressources
+
+Pour vous permettre de démarrer rapidement et vous aider à relever ce défi, nous avons préparé une liste non exhaustive de visualisations de données et d'outils inspirants sur cette page Notion : [Visualisations inspirantes et Boîte à outils](https://fabiencazals.notion.site/Inspiring-visualizations-and-Toolbox-3797702146d443078ac6413b33203c00).
+
+Cependant, n'hésitez pas à utiliser les outils que vous préférez pour réussir ce défi !
+
+# Comment utiliser ce dépôt GitHub ?
+
+Si vous n'avez jamais utilisé le dépôt GitHub, vous pouvez télécharger le contenu de ce dépôt en cliquant sur le bouton **Code** et ensuite **télécharger zip**. Si vous voulez, vous pouvez commencer à utiliser GitHub en forkant ce projet comme base pour votre projet et partager votre travail sur GitHub.
+
+![image](https://user-images.githubusercontent.com/20289907/165938434-c12486a7-b9ae-43e8-81f2-0e15e279bfd3.png)
+
 # Versión en Español
 
 Nota: Al acceder a este repositorio y a los archivos correspondientes, usted acepta un acuerdo de no divulgación. Para obtener una copia, escriba a development@iiep.unesco.org
@@ -174,6 +259,6 @@ Sin embargo, ¡siéntase libre de utilizar las herramientas que prefiera para te
 
 # ¿Cómo utilizar este repositorio de GitHub?
 
-Si nunca ha utilizado el repositorio de GitHub, puede descargar el contenido de este repositorio haciendo clic en el botón Código y luego descargar el zip. Si así lo desea, puede empezar a usar GitHub bifurcando este proyecto como base para su proyecto y compartir su trabajo en GitHub.
+Si nunca ha utilizado el repositorio de GitHub, puede descargar el contenido de este repositorio haciendo clic en el botón **Código** y luego **descargar el zip**. Si así lo desea, puede empezar a usar GitHub bifurcando este proyecto como base para su proyecto y compartir su trabajo en GitHub.
 
 ![image](https://user-images.githubusercontent.com/20289907/165938434-c12486a7-b9ae-43e8-81f2-0e15e279bfd3.png)
