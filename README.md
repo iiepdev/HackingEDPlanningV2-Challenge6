@@ -7,7 +7,7 @@ alt="Introductory video" width="720" height="360" border="10" /></a>
 
 🇪🇸 [Versión en Español](#versi%C3%B3n-en-espa%C3%B1ol)
 
-Note: By accessing this repository and the corresponding files, you agree to a [non-disclosure agreement](https://box.iiep.unesco.org/s/FCXnZCStwRcyge4). 
+Note: By accessing this repository and the corresponding files, you agree to a [non-disclosure agreement](https://box.iiep.unesco.org/s/FCXnZCStwRcyge4). You can also access the [Challenge brief](https://box.iiep.unesco.org/s/wM6B4RoeyoGrikg).
 
 ## Improving the visualisation of education indicators to make them more accessible and user-friendly
 
@@ -96,7 +96,7 @@ If you have never used github repository you can download the content of this re
 
 # Version française
 
-Note : En accédant à ce dépôt et aux fichiers correspondants, vous acceptez un [accord de non-divulgation des données confidentielles](https://box.iiep.unesco.org/s/cLG4mAXLWeJyFWT). 
+Note : En accédant à ce dépôt et aux fichiers correspondants, vous acceptez un [accord de non-divulgation des données confidentielles](https://box.iiep.unesco.org/s/cLG4mAXLWeJyFWT). Vous pouvez également accéder au [Résumé du défi](https://box.iiep.unesco.org/s/wM6B4RoeyoGrikg).
 
 🧐 Par le biais de sa plateforme web SITEAL, l'IIPE fournit un ensemble d'indicateurs éducatifs des pays d'Amérique latine, ventilés par variables socio-économiques. Ces données sont très utiles pour les fonctionnaires des ministères de l'éducation de la région, ainsi que pour les chercheurs et les développeurs intéressés par les tendances statistiques. Cependant, les tableaux de sortie de l'interface actuelle ne sont pas visuellement attrayants, ce qui les rend difficiles à interpréter et entraîne une sous-utilisation.
 
@@ -183,7 +183,7 @@ Si vous n'avez jamais utilisé le dépôt GitHub, vous pouvez télécharger le c
 
 # Versión en Español
 
-Nota: Al acceder a este repositorio y a los archivos correspondientes, usted acepta un [acuerdo de no divulgación](https://box.iiep.unesco.org/s/5NdS4nR2dinDbRY).
+Nota: Al acceder a este repositorio y a los archivos correspondientes, usted acepta un [acuerdo de no divulgación](https://box.iiep.unesco.org/s/5NdS4nR2dinDbRY). También puede acceder al [Informe del Desafío](https://box.iiep.unesco.org/s/wM6B4RoeyoGrikg).
 
 🧐 A través de su plataforma web SITEAL, el IIPE ofrece un conjunto de indicadores educativos de los países latinoamericanos desagregados por variables socioeconómicas. Estos datos son muy relevantes para los funcionarios de los ministerios de educación de la región, así como para los investigadores y desarrolladores interesados en tendencias estadísticas. Sin embargo, visualizaciones que actualmente produce la interfaz no son atractivas, lo que dificulta su interpretación y conduce a una subutilización de la información.
 
